@@ -95,9 +95,75 @@ namespace Section3CodeChallengesLibrary.WordChallenges
 
         }
 
-        public static string CountCharactersInSentence(string inputString)
+        public static string CountCharactersInSentenceV1(string inputString)
         {
-            return string.Empty;
+            inputString = inputString.ToLower();
+
+            char[] alphabet = new char[] { 'a', 'b', 'c','d',
+            'e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+
+
+            int[] counts = new int[26];
+
+            for (int index = 0; index < inputString.Length; index++)
+            {
+                char letter = inputString[index];
+
+                int letterInt = (int)letter - 97;
+
+                if (letterInt > 0)
+                    counts[letterInt]++;
+
+            }
+
+            string returnString = string.Empty;
+
+
+            for (int index = 0; index < alphabet.Length; index++)
+            {
+
+                if (counts[index] > 0)
+                    returnString = returnString + "\"" + alphabet[index] + "\" -> " + counts[index] + "  ";
+
+            }
+
+
+            return returnString;
+        }
+
+
+        public static string CountCharactersInSentenceV2(string inputString)
+        {
+            Dictionary<char, int> counts = new Dictionary<char, int>();
+            inputString = inputString.ToLower();
+
+
+            for (int index = 0; index < inputString.Length; index++)
+            {
+                var letter = inputString[index];
+
+                if (!(letter == ' '))
+                {
+
+                    if (!counts.ContainsKey(letter))
+                    {
+                        counts[letter] = 0;
+                    }
+
+                    counts[letter]++;
+
+                }
+            }
+
+            string returnString = string.Empty;
+
+            foreach (var letter in counts.Keys)
+            {
+                returnString = returnString + "\"" + letter + "\" -> " + counts[letter] + "  ";
+            }
+
+
+            return returnString;
         }
     }
 }

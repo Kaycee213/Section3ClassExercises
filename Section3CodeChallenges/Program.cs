@@ -16,6 +16,9 @@ namespace Section3CodeChallenges
             int biggest = BiggestNumber.GetSecondBiggestNumberMessy(numbersToTest);
             Console.WriteLine("Second Biggest Number is: " + biggest);
 
+            var biggestString = BiggestNumber.SecondBiggestNumber(numbersToTest);
+            Console.WriteLine("Second Biggest Number is: " + biggestString);
+
             /*    Console.WriteLine(Words.UppercaseFirst("I"));
                 Console.WriteLine(Words.UppercaseFirst("hope"));
                 Console.WriteLine(Words.UppercaseFirst("you"));
@@ -28,7 +31,6 @@ namespace Section3CodeChallenges
             Console.WriteLine("Capitalize Words");
             Console.ForegroundColor = ConsoleColor.White;
 
-
             string stringToCap = "i hope you had a good weekend";
             string cappedString = Words.CapitalizeWords(stringToCap);
             Console.WriteLine(cappedString);
@@ -40,8 +42,16 @@ namespace Section3CodeChallenges
             Console.WriteLine("Count Characters In Sentence");
             Console.ForegroundColor = ConsoleColor.White;
 
-            string charCounts = Words.CountCharactersInSentence("Hello world");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Count Charcters In String");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            string charCounts = Words.CountCharactersInSentenceV1("Hello world");
             Console.WriteLine(charCounts);
+
+            var characters = Words.CountCharactersInSentenceV2("hello world");
+            Console.WriteLine(characters);
+
         }
     }
 }

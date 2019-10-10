@@ -47,5 +47,18 @@ namespace Section3CodeChallengesLibrary.NumberChallenges
 
             return currentBiggestNumber;
         }
+
+        public static string SecondBiggestNumber(int[] intList)
+        {
+            string secondBiggestInt = string.Empty;
+            for (int i = 1; i < intList.Length; i++)
+            {
+                if (intList[i - 1] < intList[i])
+                {
+                    secondBiggestInt = "Second biggest number = " + intList[i - 1];
+                }
+            }
+            return secondBiggestInt;
+        }
     }
 }
